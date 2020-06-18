@@ -20,17 +20,17 @@ class CreateFilmsTable extends Migration
 
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->longText('description');
             $table->string('release', 150);
             $table->date('date');
-            $table->enum('rating', ['1','2','3','4','5'])->default('1');
+            $table->double('rating', 4,2)->default('1');
             $table->enum('ticket', ['Available', 'Not Available'])->default('Available');
             $table->double('price', 7,2);
-            $table->unsignedBigInteger('country');
-            $table->string('genre');
+            $table->foreignId('country');
             $table->string('photo');
 
-            $table->foreign('country')->references('id')->on('countries')->onUpdate('cascade');
+            $table->foreign('country')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -41,6 +41,10 @@ class CreateFilmsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('films');
+
+        Schema::enableForeignKeyConstraints();
     }
 }
