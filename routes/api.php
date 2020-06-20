@@ -18,7 +18,10 @@ Route::post('signin', 'AuthController@signin');
 Route::get('films', 'FilmController@index');
 Route::get('films/{slug}', 'FilmController@show');
 Route::post('films', 'FilmController@store');
+Route::get('static-data', 'StaticController@getAll');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+//
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('comments', 'FilmController@comment');
 });

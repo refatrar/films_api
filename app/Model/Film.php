@@ -11,7 +11,21 @@ class Film extends Model
 
     public function genres()
     {
-       return $this->belongsTo(Genre::class);
+       return $this->hasMany(FilmGenre::class);
+    }
+
+    public function getPhotoAttribute($value){
+        return asset('films/'.$value);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country');
     }
 
 }

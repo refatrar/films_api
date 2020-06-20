@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,11 @@ return [
         /*
          * Package Service Providers...
          */
+
+        /*
+         * Cors\ServiceProvider
+         */
+        FruitCake\Cors\CorsServiceProvider::class,
 
         /*
          * Application Service Providers...
