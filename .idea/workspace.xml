@@ -20,6 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93ebf4e2-655b-480b-bb6b-dca359751150" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/films/1592693716.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592693789.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592693816.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592693868.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592693903.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592693930.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592694004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592694519.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/films/1592698712.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaticController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaticController.php" afterDir="false" />
@@ -175,6 +184,7 @@
       <workItem from="1592609576966" duration="3394000" />
       <workItem from="1592636414438" duration="2767000" />
       <workItem from="1592651325363" duration="21253000" />
+      <workItem from="1592699200451" duration="391000" />
     </task>
     <servers />
   </component>
