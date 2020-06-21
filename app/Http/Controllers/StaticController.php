@@ -11,8 +11,8 @@ class StaticController extends Controller
 {
     public function getAll()
     {
-        $data['countries'] = Country::all();
-        $data['genres'] = Genre::all();
+        $data['countries'] = Country::select('id', 'name')->get();
+        $data['genres'] = Genre::select('id', 'gen_title')->get     ();
 
         return success_response(JsonResponse::HTTP_CREATED, 'Static Data Found', $data);
     }

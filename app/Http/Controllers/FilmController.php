@@ -6,6 +6,7 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Requests\FilmRequest;
 use App\Model\Comment;
 use App\Model\Film;
+use App\Model\FilmGenre;
 use App\Model\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ class FilmController extends Controller
      */
     public function index(Request $request)
     {
-        $films = Film::with(['genres.gener'])->withCount('comments')->paginate($request->limit);
+        $films = Film::with(['genres.gener'])->withCount('comments')->orderBy('id', 'Desc')->paginate($request->limit);
         return success_response(JsonResponse::HTTP_CREATED, 'Sucess', $films);
     }
 
@@ -52,7 +53,7 @@ class FilmController extends Controller
     public function store(FilmRequest $request)
     {
         try {
-            $data = $request->except(['photo', 'date', 'genre']);
+            $data = $request->except(['photo', 'date', 'genres']);
 
             if ($request->hasFile('photo')) {
                 $file = $request->file('photo');
@@ -69,17 +70,17 @@ class FilmController extends Controller
 
             DB::beginTransaction();
             $film = Film::create($data);
-            DB::commit();
 
             $array = [];
-            foreach ($request->genre as $row):
+            foreach ($request->genres as $row):
                 array_push($array, [
                     'film_id' => $film->id,
                     'genre_id' => $row
                 ]);
             endforeach;
 
-            Genre::insert($array);
+            FilmGenre::insert($array);
+            DB::commit();
 
             if ($film):
                 return success_response(JsonResponse::HTTP_CREATED, 'New film created', $film);

@@ -27,11 +27,11 @@ class FilmRequest extends BaseRequest
             'description' => 'required',
             'release' => 'required',
             'date' => 'required',
-            'rating' => 'required',
+            'rating' => 'required|min:1|max:5',
             'ticket' => 'required',
-            'price' => 'required',
+            'price' => 'required|min:1',
             'country' => 'required',
-            'genre' => 'required',
+            'genres' => 'required',
             'photo' => 'required',
         ];
     }
